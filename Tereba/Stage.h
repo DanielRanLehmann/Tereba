@@ -6,7 +6,7 @@
 //  Copyright © 2016 Daniel Ran Lehmann. All rights reserved.
 //
 
-#import <Realm/Realm.h>
+#import "Realm.h"
 
 @interface Stage : RLMObject
 

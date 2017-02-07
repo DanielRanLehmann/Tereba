@@ -6,7 +6,7 @@
 //  Copyright © 2016 Daniel Ran Lehmann. All rights reserved.
 //
 
-#import <Realm/Realm.h>
+#import "Realm.h"
 #import "Play.h"
 #import "Composition.h"
 #import "Organization.h"

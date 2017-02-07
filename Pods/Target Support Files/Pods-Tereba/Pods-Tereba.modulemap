@@ -1,0 +1,6 @@
+framework module Pods_Tereba {
+  umbrella header "Pods-Tereba-umbrella.h"
+
+  export *
+  module * { export * }
+}
