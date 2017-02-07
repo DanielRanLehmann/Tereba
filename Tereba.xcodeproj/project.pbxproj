@@ -7,8 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35793D941E4A7E780058B985 /* Accreditation.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D631E4A7E780058B985 /* Accreditation.m */; };
+		35793D951E4A7E780058B985 /* Composition.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D651E4A7E780058B985 /* Composition.m */; };
+		35793D961E4A7E780058B985 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D671E4A7E780058B985 /* Contact.m */; };
+		35793D971E4A7E780058B985 /* Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D691E4A7E780058B985 /* Description.m */; };
+		35793D981E4A7E780058B985 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D6B1E4A7E780058B985 /* Event.m */; };
+		35793D991E4A7E780058B985 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D6D1E4A7E780058B985 /* Organization.m */; };
+		35793D9A1E4A7E780058B985 /* OtherTicketType.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D6F1E4A7E780058B985 /* OtherTicketType.m */; };
+		35793D9B1E4A7E780058B985 /* Play.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D711E4A7E780058B985 /* Play.m */; };
+		35793D9C1E4A7E780058B985 /* Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D731E4A7E780058B985 /* Price.m */; };
+		35793D9D1E4A7E780058B985 /* PriceGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D751E4A7E780058B985 /* PriceGroup.m */; };
+		35793D9E1E4A7E780058B985 /* Production.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D771E4A7E780058B985 /* Production.m */; };
+		35793D9F1E4A7E780058B985 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D791E4A7E780058B985 /* Profile.m */; };
+		35793DA01E4A7E780058B985 /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D7B1E4A7E780058B985 /* Service.m */; };
+		35793DA11E4A7E780058B985 /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D7D1E4A7E780058B985 /* Show.m */; };
+		35793DA21E4A7E780058B985 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D7F1E4A7E780058B985 /* Stage.m */; };
+		35793DA31E4A7E780058B985 /* Subsidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D811E4A7E780058B985 /* Subsidy.m */; };
+		35793DA41E4A7E780058B985 /* Subtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D831E4A7E780058B985 /* Subtitle.m */; };
+		35793DA51E4A7E780058B985 /* Teaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D851E4A7E780058B985 /* Teaser.m */; };
+		35793DA61E4A7E780058B985 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D871E4A7E780058B985 /* Ticket.m */; };
+		35793DA71E4A7E780058B985 /* TicketAgencyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D891E4A7E780058B985 /* TicketAgencyInfo.m */; };
+		35793DA81E4A7E780058B985 /* TicketInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D8B1E4A7E780058B985 /* TicketInfo.m */; };
+		35793DA91E4A7E780058B985 /* TicketOffice.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D8D1E4A7E780058B985 /* TicketOffice.m */; };
+		35793DAA1E4A7E780058B985 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D8F1E4A7E780058B985 /* Title.m */; };
+		35793DAB1E4A7E780058B985 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D911E4A7E780058B985 /* Venue.m */; };
+		35793DAC1E4A7E780058B985 /* VenueInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D931E4A7E780058B985 /* VenueInfo.m */; };
 		358F43021E4A7D0E004B4BA5 /* Tereba.m in Sources */ = {isa = PBXBuildFile; fileRef = 358F43011E4A7D0E004B4BA5 /* Tereba.m */; };
 		358F43031E4A7D0E004B4BA5 /* Tereba.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358F43001E4A7D0E004B4BA5 /* Tereba.h */; };
+		9B8D0D2409CD9690FE737C28 /* libPods-Tereba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F89827E1F46B1295052FDE5 /* libPods-Tereba.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +51,62 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		35793D621E4A7E780058B985 /* Accreditation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Accreditation.h; sourceTree = "<group>"; };
+		35793D631E4A7E780058B985 /* Accreditation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Accreditation.m; sourceTree = "<group>"; };
+		35793D641E4A7E780058B985 /* Composition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Composition.h; sourceTree = "<group>"; };
+		35793D651E4A7E780058B985 /* Composition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Composition.m; sourceTree = "<group>"; };
+		35793D661E4A7E780058B985 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		35793D671E4A7E780058B985 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		35793D681E4A7E780058B985 /* Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Description.h; sourceTree = "<group>"; };
+		35793D691E4A7E780058B985 /* Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Description.m; sourceTree = "<group>"; };
+		35793D6A1E4A7E780058B985 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		35793D6B1E4A7E780058B985 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		35793D6C1E4A7E780058B985 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
+		35793D6D1E4A7E780058B985 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
+		35793D6E1E4A7E780058B985 /* OtherTicketType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherTicketType.h; sourceTree = "<group>"; };
+		35793D6F1E4A7E780058B985 /* OtherTicketType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherTicketType.m; sourceTree = "<group>"; };
+		35793D701E4A7E780058B985 /* Play.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Play.h; sourceTree = "<group>"; };
+		35793D711E4A7E780058B985 /* Play.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Play.m; sourceTree = "<group>"; };
+		35793D721E4A7E780058B985 /* Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Price.h; sourceTree = "<group>"; };
+		35793D731E4A7E780058B985 /* Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Price.m; sourceTree = "<group>"; };
+		35793D741E4A7E780058B985 /* PriceGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceGroup.h; sourceTree = "<group>"; };
+		35793D751E4A7E780058B985 /* PriceGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceGroup.m; sourceTree = "<group>"; };
+		35793D761E4A7E780058B985 /* Production.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Production.h; sourceTree = "<group>"; };
+		35793D771E4A7E780058B985 /* Production.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Production.m; sourceTree = "<group>"; };
+		35793D781E4A7E780058B985 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		35793D791E4A7E780058B985 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		35793D7A1E4A7E780058B985 /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
+		35793D7B1E4A7E780058B985 /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		35793D7C1E4A7E780058B985 /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
+		35793D7D1E4A7E780058B985 /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
+		35793D7E1E4A7E780058B985 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
+		35793D7F1E4A7E780058B985 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
+		35793D801E4A7E780058B985 /* Subsidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subsidy.h; sourceTree = "<group>"; };
+		35793D811E4A7E780058B985 /* Subsidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subsidy.m; sourceTree = "<group>"; };
+		35793D821E4A7E780058B985 /* Subtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subtitle.h; sourceTree = "<group>"; };
+		35793D831E4A7E780058B985 /* Subtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subtitle.m; sourceTree = "<group>"; };
+		35793D841E4A7E780058B985 /* Teaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teaser.h; sourceTree = "<group>"; };
+		35793D851E4A7E780058B985 /* Teaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teaser.m; sourceTree = "<group>"; };
+		35793D861E4A7E780058B985 /* Ticket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		35793D871E4A7E780058B985 /* Ticket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		35793D881E4A7E780058B985 /* TicketAgencyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketAgencyInfo.h; sourceTree = "<group>"; };
+		35793D891E4A7E780058B985 /* TicketAgencyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketAgencyInfo.m; sourceTree = "<group>"; };
+		35793D8A1E4A7E780058B985 /* TicketInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketInfo.h; sourceTree = "<group>"; };
+		35793D8B1E4A7E780058B985 /* TicketInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketInfo.m; sourceTree = "<group>"; };
+		35793D8C1E4A7E780058B985 /* TicketOffice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketOffice.h; sourceTree = "<group>"; };
+		35793D8D1E4A7E780058B985 /* TicketOffice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketOffice.m; sourceTree = "<group>"; };
+		35793D8E1E4A7E780058B985 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Title.h; sourceTree = "<group>"; };
+		35793D8F1E4A7E780058B985 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Title.m; sourceTree = "<group>"; };
+		35793D901E4A7E780058B985 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		35793D911E4A7E780058B985 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		35793D921E4A7E780058B985 /* VenueInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueInfo.h; sourceTree = "<group>"; };
+		35793D931E4A7E780058B985 /* VenueInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueInfo.m; sourceTree = "<group>"; };
 		358F42FD1E4A7D0E004B4BA5 /* libTereba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTereba.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		358F43001E4A7D0E004B4BA5 /* Tereba.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tereba.h; sourceTree = "<group>"; };
 		358F43011E4A7D0E004B4BA5 /* Tereba.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tereba.m; sourceTree = "<group>"; };
+		4842C04D6A9BFC690FFE420F /* Pods-Tereba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tereba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tereba/Pods-Tereba.release.xcconfig"; sourceTree = "<group>"; };
+		5F89827E1F46B1295052FDE5 /* libPods-Tereba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tereba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E0B4BBC9C0EC1B81DDBE77 /* Pods-Tereba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tereba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tereba/Pods-Tereba.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B8D0D2409CD9690FE737C28 /* libPods-Tereba.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +126,8 @@
 			children = (
 				358F42FF1E4A7D0E004B4BA5 /* Tereba */,
 				358F42FE1E4A7D0E004B4BA5 /* Products */,
+				981CFD7C742D3A50BF4E908D /* Pods */,
+				AC52CA718F2A8017E38E073B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,8 +144,75 @@
 			children = (
 				358F43001E4A7D0E004B4BA5 /* Tereba.h */,
 				358F43011E4A7D0E004B4BA5 /* Tereba.m */,
+				35793D621E4A7E780058B985 /* Accreditation.h */,
+				35793D631E4A7E780058B985 /* Accreditation.m */,
+				35793D641E4A7E780058B985 /* Composition.h */,
+				35793D651E4A7E780058B985 /* Composition.m */,
+				35793D661E4A7E780058B985 /* Contact.h */,
+				35793D671E4A7E780058B985 /* Contact.m */,
+				35793D681E4A7E780058B985 /* Description.h */,
+				35793D691E4A7E780058B985 /* Description.m */,
+				35793D6A1E4A7E780058B985 /* Event.h */,
+				35793D6B1E4A7E780058B985 /* Event.m */,
+				35793D6C1E4A7E780058B985 /* Organization.h */,
+				35793D6D1E4A7E780058B985 /* Organization.m */,
+				35793D6E1E4A7E780058B985 /* OtherTicketType.h */,
+				35793D6F1E4A7E780058B985 /* OtherTicketType.m */,
+				35793D701E4A7E780058B985 /* Play.h */,
+				35793D711E4A7E780058B985 /* Play.m */,
+				35793D721E4A7E780058B985 /* Price.h */,
+				35793D731E4A7E780058B985 /* Price.m */,
+				35793D741E4A7E780058B985 /* PriceGroup.h */,
+				35793D751E4A7E780058B985 /* PriceGroup.m */,
+				35793D761E4A7E780058B985 /* Production.h */,
+				35793D771E4A7E780058B985 /* Production.m */,
+				35793D781E4A7E780058B985 /* Profile.h */,
+				35793D791E4A7E780058B985 /* Profile.m */,
+				35793D7A1E4A7E780058B985 /* Service.h */,
+				35793D7B1E4A7E780058B985 /* Service.m */,
+				35793D7C1E4A7E780058B985 /* Show.h */,
+				35793D7D1E4A7E780058B985 /* Show.m */,
+				35793D7E1E4A7E780058B985 /* Stage.h */,
+				35793D7F1E4A7E780058B985 /* Stage.m */,
+				35793D801E4A7E780058B985 /* Subsidy.h */,
+				35793D811E4A7E780058B985 /* Subsidy.m */,
+				35793D821E4A7E780058B985 /* Subtitle.h */,
+				35793D831E4A7E780058B985 /* Subtitle.m */,
+				35793D841E4A7E780058B985 /* Teaser.h */,
+				35793D851E4A7E780058B985 /* Teaser.m */,
+				35793D861E4A7E780058B985 /* Ticket.h */,
+				35793D871E4A7E780058B985 /* Ticket.m */,
+				35793D881E4A7E780058B985 /* TicketAgencyInfo.h */,
+				35793D891E4A7E780058B985 /* TicketAgencyInfo.m */,
+				35793D8A1E4A7E780058B985 /* TicketInfo.h */,
+				35793D8B1E4A7E780058B985 /* TicketInfo.m */,
+				35793D8C1E4A7E780058B985 /* TicketOffice.h */,
+				35793D8D1E4A7E780058B985 /* TicketOffice.m */,
+				35793D8E1E4A7E780058B985 /* Title.h */,
+				35793D8F1E4A7E780058B985 /* Title.m */,
+				35793D901E4A7E780058B985 /* Venue.h */,
+				35793D911E4A7E780058B985 /* Venue.m */,
+				35793D921E4A7E780058B985 /* VenueInfo.h */,
+				35793D931E4A7E780058B985 /* VenueInfo.m */,
 			);
 			path = Tereba;
+			sourceTree = "<group>";
+		};
+		981CFD7C742D3A50BF4E908D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0B4BBC9C0EC1B81DDBE77 /* Pods-Tereba.debug.xcconfig */,
+				4842C04D6A9BFC690FFE420F /* Pods-Tereba.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC52CA718F2A8017E38E073B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F89827E1F46B1295052FDE5 /* libPods-Tereba.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 358F43061E4A7D0E004B4BA5 /* Build configuration list for PBXNativeTarget "Tereba" */;
 			buildPhases = (
+				32B4E2B1F26F5701BD054BD5 /* [CP] Check Pods Manifest.lock */,
 				358F42F91E4A7D0E004B4BA5 /* Sources */,
 				358F42FA1E4A7D0E004B4BA5 /* Frameworks */,
 				358F42FB1E4A7D0E004B4BA5 /* CopyFiles */,
+				76739AABE426CCFD70D3766C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -119,11 +270,69 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32B4E2B1F26F5701BD054BD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76739AABE426CCFD70D3766C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tereba/Pods-Tereba-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		358F42F91E4A7D0E004B4BA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35793D981E4A7E780058B985 /* Event.m in Sources */,
+				35793DA91E4A7E780058B985 /* TicketOffice.m in Sources */,
+				35793D961E4A7E780058B985 /* Contact.m in Sources */,
+				35793D941E4A7E780058B985 /* Accreditation.m in Sources */,
+				35793DA81E4A7E780058B985 /* TicketInfo.m in Sources */,
+				35793D971E4A7E780058B985 /* Description.m in Sources */,
+				35793DA31E4A7E780058B985 /* Subsidy.m in Sources */,
+				35793D9A1E4A7E780058B985 /* OtherTicketType.m in Sources */,
+				35793DA01E4A7E780058B985 /* Service.m in Sources */,
+				35793DA21E4A7E780058B985 /* Stage.m in Sources */,
+				35793D9D1E4A7E780058B985 /* PriceGroup.m in Sources */,
+				35793DAC1E4A7E780058B985 /* VenueInfo.m in Sources */,
+				35793DA51E4A7E780058B985 /* Teaser.m in Sources */,
+				35793DAA1E4A7E780058B985 /* Title.m in Sources */,
+				35793DAB1E4A7E780058B985 /* Venue.m in Sources */,
+				35793DA41E4A7E780058B985 /* Subtitle.m in Sources */,
+				35793D9C1E4A7E780058B985 /* Price.m in Sources */,
+				35793D9B1E4A7E780058B985 /* Play.m in Sources */,
+				35793D9F1E4A7E780058B985 /* Profile.m in Sources */,
+				35793DA11E4A7E780058B985 /* Show.m in Sources */,
+				35793DA61E4A7E780058B985 /* Ticket.m in Sources */,
+				35793D951E4A7E780058B985 /* Composition.m in Sources */,
+				35793D991E4A7E780058B985 /* Organization.m in Sources */,
+				35793DA71E4A7E780058B985 /* TicketAgencyInfo.m in Sources */,
+				35793D9E1E4A7E780058B985 /* Production.m in Sources */,
 				358F43021E4A7D0E004B4BA5 /* Tereba.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +430,7 @@
 		};
 		358F43071E4A7D0E004B4BA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E0B4BBC9C0EC1B81DDBE77 /* Pods-Tereba.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 655US6229G;
 				OTHER_LDFLAGS = "-ObjC";
@@ -231,6 +441,7 @@
 		};
 		358F43081E4A7D0E004B4BA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4842C04D6A9BFC690FFE420F /* Pods-Tereba.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 655US6229G;
 				OTHER_LDFLAGS = "-ObjC";
@@ -258,6 +469,7 @@
 				358F43081E4A7D0E004B4BA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
