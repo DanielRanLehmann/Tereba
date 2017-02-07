@@ -7,8 +7,8 @@
 //
 
 #import "Tereba.h"
-#import "AFNetworking.h"
-#import "PINCache.h"
+#import <AFNetworking/AFNetworking.h>
+#import <PINCache/PINCache.h>
 
 @interface Tereba () {
     RLMRealm *realm;

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Realm.h"
+#import <Realm/Realm.h>
 #import "Organization.h"
 #import "Event.h" 
 
