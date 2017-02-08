@@ -115,7 +115,7 @@
         
         [manager GET:[NSString stringWithFormat:@"validate_api_key"] parameters:@{@"api_key" : apiKey} progress:nil success:^(NSURLSessionTask *task, id responseObject) {
             
-            if ([responseObject containsObject:@"is_valid"]) {
+            if ([[responseObject allKeys] containsObject:@"is_valid"]) {
                 BOOL isValid = [[responseObject objectForKey:@"is_valid"] boolValue];
                 if (isValid) {
                     _apiKey = apiKey;
@@ -145,21 +145,28 @@
     self = [super init];
     if (self) {
         [self setupWithAPIKey:apiKey];
+        [self setupDB];
     }
     
     return self;
 }
 
+// don't use this, use the one above.
 - (instancetype)init {
     self = [super init];
     if (self) {
-        realm = [RLMRealm defaultRealm];
-        
-        NSURL *fileURL = [RLMRealmConfiguration defaultConfiguration].fileURL;
-        NSLog(@"fileURL: %@", fileURL);
+        //[self setupDB];
     }
     
     return self;
+}
+
+- (void)setupDB {
+
+    realm = [RLMRealm defaultRealm];
+    
+    NSURL *fileURL = [RLMRealmConfiguration defaultConfiguration].fileURL;
+    NSLog(@"fileURL: %@", fileURL);
 }
 
 - (RLMResults *)events {
