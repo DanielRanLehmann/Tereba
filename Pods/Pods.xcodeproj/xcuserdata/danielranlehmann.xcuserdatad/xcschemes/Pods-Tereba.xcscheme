@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3AEDE3F0DF3F1B468E4EBC614B21771C'
+               BlueprintIdentifier = '54CB96A0FC79637FF53223055F25072C'
                BlueprintName = 'Pods-Tereba'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-Tereba.a'>
