@@ -24,7 +24,7 @@
 
 - (void)setupWithAPIKey:(NSString *)apiKey;
 
-- (void)update:(void (^)(BOOL isUpdating))handler;
-- (void)asyncUpdate:(void (^)(BOOL isUpdating))handler;
+- (void)update:(void (^)(BOOL hasFinished))handler;
+- (void)asyncUpdate:(void (^)(BOOL hasFinished))handler;
 
 @end
