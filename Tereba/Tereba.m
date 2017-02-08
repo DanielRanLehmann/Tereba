@@ -18,27 +18,12 @@
 
 @implementation Tereba
 
-// setup with an api key.. so you must have an api key in order to use Tereba mobile.
-
-/*
-+ (void)setupWithAPIKey:(NSString *)apiKey {
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:[NSString stringWithFormat:@"https://tereba-example.firebaseio.com/api_keys/%@", apiKey] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"success? : %@", responseObject);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"error: %@", error);
-    }];
-    
-}
- */
-
-- (void)update:(void (^)(BOOL hasFinished))handler {
+- (void)update:(void (^)(BOOL hasFinished, NSError *error))handler {
     
     // timestamp logic goes here.
     // access pincached timestamps right here.
     
-    handler(NO);
+    handler(NO, nil);
     
     if ([[PINCache sharedCache] containsObjectForKey:@"organizationsNextUpdate"]) {
         [[PINCache sharedCache] objectForKey:@"organizationsNextUpdate"
@@ -46,20 +31,33 @@
                                            NSTimeInterval organizationsNextUpdate = [(NSNumber *)object doubleValue];
                                            NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
                                            if (currentTime >= organizationsNextUpdate) {
-                                               [self syncOrganizations];
+                                               [self updateOrganizations:^(BOOL hasFinished, NSError *error) {
+                                                   // handle here.
+                                                   handler(hasFinished, error);
+                                                   if (error) {
+                                                       return;
+                                                   }
+                                               }];
                                            }
                                            
                                            else {
                                                NSLog(@"organizations are all up to date. no reason to update DB");
+                                               handler(YES, nil);
+                                               return;
+                                            
                                            }
                                            
                                        }];
     }
     
     else {
-        [self syncOrganizations];
+        [self updateOrganizations:^(BOOL hasFinished, NSError *error) {
+            handler(hasFinished, error);
+            if (error) {
+                return;
+            }
+        }];
     }
-    
     
     
     if ([[PINCache sharedCache] containsObjectForKey:@"eventsNextUpdate"]) {
@@ -68,25 +66,39 @@
                                            NSTimeInterval eventsNextUpdate = [(NSNumber *)object doubleValue];
                                            NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
                                            if (currentTime >= eventsNextUpdate) {
-                                               [self syncEvents];
+                                               [self updateEvents:^(BOOL hasFinished, NSError *error) {
+                                                   // handle
+                                                   handler(hasFinished, error);
+                                                   if (error) {
+                                                       return;
+                                                   }
+                                               }];
                                            }
                                            
                                            else {
                                                NSLog(@"events are all up to date. no reason to update DB");
+                                               handler(YES, nil);
+                                               return;
                                            }
                                            
                                        }];
     }
     
     else {
-        [self syncEvents];
+        [self updateEvents:^(BOOL hasFinished, NSError *error) {
+            // handle
+            handler(hasFinished, error);
+            if (error) {
+                return;
+            }
+        }];
     }
     
-    handler(YES);
+    handler(YES, nil);
 
 }
 
-- (void)asyncUpdate:(void (^)(BOOL hasFinished))handler { // but you can't access the db from any other thread now.
+- (void)asyncUpdate:(void (^)(BOOL hasFinished, NSError *error))handler { // but you can't access the db from any other thread now?
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         [self update:handler];
@@ -158,78 +170,12 @@
     return [Organization allObjects];
 }
 
-/*
-- (NSTimeInterval)organizationsLastUpdated {
-    __block NSTimeInterval organizationsLastUpdated = 0;
-    [[PINCache sharedCache] objectForKey:@"organizationsLastUpdated"
-                                   block:^(PINCache *cache, NSString *key, id object) {
-                                       organizationsLastUpdated = [(NSNumber *)object doubleValue];
-                                       
-                                   }];
-    
-    return organizationsLastUpdated;
-}
-*/
+- (void)updateOrganizations:(void (^)(BOOL hasFinished, NSError *error))handler {
 
-- (void)sync {
-    
-    // timestamp logic goes here.
-    // access pincached timestamps right here.
-    
-    NSLog(@"this is called");
-    
-    if ([[PINCache sharedCache] containsObjectForKey:@"organizationsNextUpdate"]) {
-        [[PINCache sharedCache] objectForKey:@"organizationsNextUpdate"
-                                       block:^(PINCache *cache, NSString *key, id object) {
-                                           NSTimeInterval organizationsNextUpdate = [(NSNumber *)object doubleValue];
-                                           NSLog(@"organizationNextUpdate: %f", organizationsNextUpdate);
-                                           
-                                           NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
-                                           if (currentTime >= organizationsNextUpdate) {
-                                               [self syncOrganizations];
-                                           }
-                                           
-                                           else {
-                                               NSLog(@"organizations are all up to date. no reason to update DB");
-                                           }
-                                           
-                                       }];
-    }
-    
-    else {
-        [self syncOrganizations];
-    }
-    
-    
-   
-    if ([[PINCache sharedCache] containsObjectForKey:@"eventsNextUpdate"]) {
-        [[PINCache sharedCache] objectForKey:@"eventsNextUpdate"
-                                       block:^(PINCache *cache, NSString *key, id object) {
-                                           NSTimeInterval eventsNextUpdate = [(NSNumber *)object doubleValue];
-                                           NSLog(@"eventsNextUpdate: %f", eventsNextUpdate);
-                                           
-                                           NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
-                                           if (currentTime >= eventsNextUpdate) {
-                                               [self syncEvents];
-                                           }
-                                           
-                                           else {
-                                               NSLog(@"events are all up to date. no reason to update DB");
-                                           }
-                                           
-                                       }];
-    }
-    
-    else {
-        [self syncEvents];
-    }
-}
-
-- (void)syncOrganizations {
-    
-    NSLog(@"update has started.");
     [self requestOrganizationsWithCompletionHandler:^(id response, NSError *error) {
         if (!error) {
+            
+            handler(NO, nil);
             
             [[PINCache sharedCache] setObject:response[@"lastUpdated"] forKey:@"organizationsLastUpdated" block:nil];
             [[PINCache sharedCache] setObject:response[@"nextUpdate"] forKey:@"organizationsNextUpdate" block:nil];
@@ -253,7 +199,6 @@
                         
                         if (!organizationWasFound) {
                             NSLog(@"DELETE OLD ORGANIZATION is called.");
-                            // DELETE 'OLD' ORGANIZATION.
                             [realm beginWriteTransaction];
                             
                             for (Description *description in currentOrganization.descriptions) {
@@ -281,7 +226,6 @@
                     }
                     
                     for (NSDictionary *newOrganization in newOrganizations) {
-                        //for (Organization *currentOrganization in currentOrganizations) {
                         BOOL organizationWasFound = false;
                         
                         Organization *currentOrganization = [[Organization objectsWhere:@"code == %@", newOrganization[@"code"]] firstObject];
@@ -290,7 +234,6 @@
                             organizationWasFound = true;
                             if (![newOrganization[@"checksum"] isEqualToString:currentOrganization.checksum]) {
                                 // UPDATE ORGANIZATION.
-                                NSLog(@"Upading organization.");
                                 [realm beginWriteTransaction];
                                 
                                 for (Description *description in currentOrganization.descriptions) {
@@ -318,7 +261,7 @@
                                 [realm addOrUpdateObject:organization];
                                 [realm commitWriteTransaction];
                                 
-                                // BREAK OUT OF LOOP.
+                                // BREAK OUT OF LOOP. ?
                             }
                             
                             else {
@@ -327,8 +270,6 @@
                         }
                         
                         if (!organizationWasFound) {
-                            NSLog(@"adding a brand new organization.");
-                            // ADD ORGANIZATION.
                             Organization *organization = [[Organization alloc] initWithValue:newOrganization];
                             [realm beginWriteTransaction];
                             [realm addOrUpdateObject:organization];
@@ -347,8 +288,6 @@
             
             else {
                 
-                NSLog(@"adding the whole shabang.");
-                
                 for (NSDictionary *newOrganization in newOrganizations) {
                     Organization *organization = [[Organization alloc] initWithValue:newOrganization];
                     
@@ -357,19 +296,23 @@
                     [realm commitWriteTransaction];
                 }
             }
+            
+            handler(YES, nil);
         }
         
         else {
-            NSLog(@"error: %@", [error localizedDescription]);
+            handler(YES, error);
             return;
         }
     }];
 }
-
-- (void)syncEvents {
+  
+- (void)updateEvents:(void (^)(BOOL hasFinished, NSError *error))handler {
     
     [self requestEventsWithCompletionHandler:^(id response, NSError *error) {
         if (!error) {
+            
+            handler(NO, nil);
             
             [[PINCache sharedCache] setObject:response[@"lastUpdated"] forKey:@"eventsLastUpdated" block:nil];
             [[PINCache sharedCache] setObject:response[@"nextUpdate"] forKey:@"eventsNextUpdate" block:nil];
@@ -392,7 +335,6 @@
                         }
                         
                         if (!eventWasFound) {
-                            NSLog(@"DELETE OLD Event is called.");
                             // DELETE 'OLD' ORGANIZATION.
                             [realm beginWriteTransaction];
                             
@@ -471,7 +413,6 @@
                             eventWasFound = true;
                             if (![newEvent[@"checksum"] isEqualToString:currentEvent.checksum]) {
                                 // UPDATE ORGANIZATION.
-                                NSLog(@"updating event.");
                                 [realm beginWriteTransaction];
                                 
                                 for (Title *title in currentEvent.titles) {
@@ -550,7 +491,6 @@
                         }
                         
                         if (!eventWasFound) {
-                            NSLog(@"adding a brand new organization.");
                             // ADD ORGANIZATION.
                             Event *event = [[Event alloc] initWithValue:newEvent];
                             [realm beginWriteTransaction];
@@ -580,39 +520,35 @@
                     [realm commitWriteTransaction];
                 }
             }
+            
+            handler(YES, nil);
         }
         
         else {
-            NSLog(@"error: %@", [error localizedDescription]);
+            handler(YES, error);
             return;
         }
     }];
 }
 
-- (void)requestModelWithName:(NSString *)modelName completionHandler:(void (^)(id response, NSError *error))handler {
+- (void)requestJSON:(NSString *)json completionHandler:(void (^)(id response, NSError *error))handler {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:[NSString stringWithFormat:@"https://s3-eu-west-1.amazonaws.com/teater-billetter-medias/%@.json", modelName] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"success? : %@", responseObject);
+    [manager GET:[NSString stringWithFormat:@"https://s3-eu-west-1.amazonaws.com/teater-billetter-medias/%@.json", json] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         handler(responseObject, nil);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"error: %@", error);
         handler(nil, error);
     }];
 }
 
 - (void)requestOrganizationsWithCompletionHandler:(void (^)(id response, NSError *error))handler {
-    
-    NSLog(@"this was triggered, organization model.");
-    [self requestModelWithName:@"organizations" completionHandler:^(id response, NSError *error) {
+    [self requestJSON:@"organizations" completionHandler:^(id response, NSError *error) {
         handler(response, error);
     }];
 }
 
 - (void)requestEventsWithCompletionHandler:(void (^)(id response, NSError *error))handler {
-    
-    NSLog(@"this was triggered event model.");
-    [self requestModelWithName:@"events" completionHandler:^(id response, NSError *error) {
+    [self requestJSON:@"events" completionHandler:^(id response, NSError *error) {
         handler(response, error);
     }];
 }

@@ -22,9 +22,19 @@
 @property (readonly) RLMResults *events;
 @property (readonly) RLMResults *organizations;
 
+/*!
+ @brief In order to use Tereba you need to have a valid API Key.
+ */
 - (void)setupWithAPIKey:(NSString *)apiKey;
 
-- (void)update:(void (^)(BOOL hasFinished))handler;
-- (void)asyncUpdate:(void (^)(BOOL hasFinished))handler;
+/*!
+ @brief Updates tereba synchronously and creates the realm database if it's the first time updating. If it's the first time updating, it may take a while.
+*/
+- (void)update:(void (^)(BOOL hasFinished, NSError *error))handler;
+
+/*!
+ @brief Updates tereba asynchronously and creates the realm database if it's the first time updating. If it's the first time updating, it may take a while.
+ */
+- (void)asyncUpdate:(void (^)(BOOL hasFinished, NSError *error))handler;
 
 @end
