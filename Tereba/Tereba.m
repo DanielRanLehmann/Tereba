@@ -9,7 +9,6 @@
 #import "Tereba.h"
 #import <AFNetworking/AFNetworking.h>
 #import <PINCache/PINCache.h>
-@import Firebase;
 
 @interface Tereba () {
     RLMRealm *realm;
