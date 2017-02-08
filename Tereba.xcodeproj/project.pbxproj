@@ -34,7 +34,7 @@
 		35793DAC1E4A7E780058B985 /* VenueInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 35793D931E4A7E780058B985 /* VenueInfo.m */; };
 		358F43021E4A7D0E004B4BA5 /* Tereba.m in Sources */ = {isa = PBXBuildFile; fileRef = 358F43011E4A7D0E004B4BA5 /* Tereba.m */; };
 		358F43031E4A7D0E004B4BA5 /* Tereba.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358F43001E4A7D0E004B4BA5 /* Tereba.h */; };
-		4AF78FB68398C61F5DF98A4B /* Pods_Tereba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB23508C9C24C79F971267D7 /* Pods_Tereba.framework */; };
+		AFBC46354714197C37EE3115 /* libPods-Tereba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C320922EEB5172BFD00CB0D /* libPods-Tereba.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,7 +105,7 @@
 		358F43001E4A7D0E004B4BA5 /* Tereba.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tereba.h; sourceTree = "<group>"; };
 		358F43011E4A7D0E004B4BA5 /* Tereba.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tereba.m; sourceTree = "<group>"; };
 		4842C04D6A9BFC690FFE420F /* Pods-Tereba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tereba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tereba/Pods-Tereba.release.xcconfig"; sourceTree = "<group>"; };
-		CB23508C9C24C79F971267D7 /* Pods_Tereba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tereba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C320922EEB5172BFD00CB0D /* libPods-Tereba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tereba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E0B4BBC9C0EC1B81DDBE77 /* Pods-Tereba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tereba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tereba/Pods-Tereba.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF78FB68398C61F5DF98A4B /* Pods_Tereba.framework in Frameworks */,
+				AFBC46354714197C37EE3115 /* libPods-Tereba.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +210,7 @@
 		AC52CA718F2A8017E38E073B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CB23508C9C24C79F971267D7 /* Pods_Tereba.framework */,
+				6C320922EEB5172BFD00CB0D /* libPods-Tereba.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

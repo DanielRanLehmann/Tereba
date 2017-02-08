@@ -13,7 +13,11 @@
 
 @interface Tereba : NSObject
 
-+ (instancetype)sharedTereba;
+// + (void)setupWithAPIKey:(NSString *)apiKey;
+
++ (instancetype)setupWithAPIKey:(NSString *)apiKey;
+
+//+ (instancetype)sharedTereba;
 
 @property (readonly) RLMResults *events;
 @property (readonly) RLMResults *organizations;

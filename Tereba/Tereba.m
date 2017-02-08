@@ -9,6 +9,7 @@
 #import "Tereba.h"
 #import <AFNetworking/AFNetworking.h>
 #import <PINCache/PINCache.h>
+@import Firebase;
 
 @interface Tereba () {
     RLMRealm *realm;
@@ -19,14 +20,60 @@
 @implementation Tereba
 
 // setup with an api key.. so you must have an api key in order to use Tereba mobile.
-// + (void)setupWithAPIKey:(NSString *)apiKey
 
-+ (instancetype)sharedTereba {
-    static Tereba *sharedMyManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
+/*
++ (void)setupWithAPIKey:(NSString *)apiKey {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:[NSString stringWithFormat:@"https://tereba-example.firebaseio.com/api_keys/%@", apiKey] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"success? : %@", responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"error: %@", error);
+    }];
+    
+}
+ */
+
++ (void)update:(void (^)(BOOL successful, NSError *error))handler {
+    
+    // timestamp logic goes here.
+    // access pincached timestamps right here.
+    
+    NSLog(@"this is called");
+
+}
+
++ (void)asyncUpdate:(void (^)(BOOL successful, NSError *error))handler { // timestamp update.
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        [self update:handler];
     });
+    
+}
+
++ (instancetype)setupWithAPIKey:(NSString *)apiKey {
+    
+    static Tereba *sharedMyManager = nil;
+    
+    if (apiKey.length > 0) {
+    
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        [manager GET:[NSString stringWithFormat:@"https://tereba-example.firebaseio.com/api_keys/%@", apiKey] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            NSLog(@"success? : %@", responseObject);
+           
+           // what is the response.. if it's not null, then init?
+            
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                sharedMyManager = [[self alloc] init];
+            });
+            
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            NSLog(@"error: %@", error);
+        }];
+        
+    }
+    
     return sharedMyManager;
 }
 
