@@ -6,7 +6,7 @@
 //  Copyright © 2016 Daniel Ran Lehmann. All rights reserved.
 //
 
-#import "Realm.h"
+#import <Realm/Realm.h>
 #import "Contact.h" 
 #import "Profile.h"
 #import "Venue.h"

@@ -432,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E5E0B4BBC9C0EC1B81DDBE77 /* Pods-Tereba.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				DEVELOPMENT_TEAM = 655US6229G;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4842C04D6A9BFC690FFE420F /* Pods-Tereba.release.xcconfig */;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				DEVELOPMENT_TEAM = 655US6229G;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

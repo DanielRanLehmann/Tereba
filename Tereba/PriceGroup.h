@@ -6,7 +6,7 @@
 //  Copyright © 2016 Daniel Ran Lehmann. All rights reserved.
 //
 
-#import "Realm.h"
+#import <Realm/Realm.h>
 #import "Price.h"
 
 @interface PriceGroup : RLMObject
