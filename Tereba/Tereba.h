@@ -8,23 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import <Realm/Realm.h>
+
 #import "Organization.h"
 #import "Event.h" 
 
 @interface Tereba : NSObject
 
-// + (void)setupWithAPIKey:(NSString *)apiKey;
-
++ (instancetype)shared;
 + (instancetype)setupWithAPIKey:(NSString *)apiKey;
 
-//+ (instancetype)sharedTereba;
+@property (readonly, nonatomic) NSString *apiKey;
 
 @property (readonly) RLMResults *events;
 @property (readonly) RLMResults *organizations;
 
-- (void)sync;
+- (void)setupWithAPIKey:(NSString *)apiKey;
 
-- (void)syncOrganizations;
-- (void)syncEvents;
+- (void)update:(void (^)(BOOL isUpdating))handler;
+- (void)asyncUpdate:(void (^)(BOOL isUpdating))handler;
 
 @end

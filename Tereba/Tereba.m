@@ -33,47 +33,109 @@
 }
  */
 
-+ (void)update:(void (^)(BOOL successful, NSError *error))handler {
+- (void)update:(void (^)(BOOL isUpdating))handler {
     
     // timestamp logic goes here.
     // access pincached timestamps right here.
     
-    NSLog(@"this is called");
+    handler(YES);
+    
+    if ([[PINCache sharedCache] containsObjectForKey:@"organizationsNextUpdate"]) {
+        [[PINCache sharedCache] objectForKey:@"organizationsNextUpdate"
+                                       block:^(PINCache *cache, NSString *key, id object) {
+                                           NSTimeInterval organizationsNextUpdate = [(NSNumber *)object doubleValue];
+                                           NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+                                           if (currentTime >= organizationsNextUpdate) {
+                                               [self syncOrganizations];
+                                           }
+                                           
+                                           else {
+                                               NSLog(@"organizations are all up to date. no reason to update DB");
+                                           }
+                                           
+                                       }];
+    }
+    
+    else {
+        [self syncOrganizations];
+    }
+    
+    
+    
+    if ([[PINCache sharedCache] containsObjectForKey:@"eventsNextUpdate"]) {
+        [[PINCache sharedCache] objectForKey:@"eventsNextUpdate"
+                                       block:^(PINCache *cache, NSString *key, id object) {
+                                           NSTimeInterval eventsNextUpdate = [(NSNumber *)object doubleValue];
+                                           NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+                                           if (currentTime >= eventsNextUpdate) {
+                                               [self syncEvents];
+                                           }
+                                           
+                                           else {
+                                               NSLog(@"events are all up to date. no reason to update DB");
+                                           }
+                                           
+                                       }];
+    }
+    
+    else {
+        [self syncEvents];
+    }
+    
+    handler(NO);
 
 }
 
-+ (void)asyncUpdate:(void (^)(BOOL successful, NSError *error))handler { // timestamp update.
+- (void)asyncUpdate:(void (^)(BOOL isUpdating))handler { // timestamp update.
     
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         [self update:handler];
     });
     
 }
 
-+ (instancetype)setupWithAPIKey:(NSString *)apiKey {
-    
-    static Tereba *sharedMyManager = nil;
-    
+- (void)setupWithAPIKey:(NSString *)apiKey {
     if (apiKey.length > 0) {
-    
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager GET:[NSString stringWithFormat:@"https://tereba-example.firebaseio.com/api_keys/%@", apiKey] parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-            NSLog(@"success? : %@", responseObject);
-           
-           // what is the response.. if it's not null, then init?
+        
+        AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://afternoon-thicket-58704.herokuapp.com/"]];
+        
+        manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
+        
+        [manager GET:[NSString stringWithFormat:@"validate_api_key"] parameters:@{@"api_key" : apiKey} progress:nil success:^(NSURLSessionTask *task, id responseObject) {
             
-            static dispatch_once_t onceToken;
-            dispatch_once(&onceToken, ^{
-                sharedMyManager = [[self alloc] init];
-            });
+            if ([responseObject containsObject:@"is_valid"]) {
+                BOOL isValid = [[responseObject objectForKey:@"is_valid"] boolValue];
+                if (isValid) {
+                    _apiKey = apiKey;
+                }
+                
+                [[PINCache sharedCache] setObject:@{@"is_valid" : [NSNumber numberWithBool:isValid], @"api_key" : apiKey} forKey:@"api_key"];
+            }
             
         } failure:^(NSURLSessionTask *operation, NSError *error) {
             NSLog(@"error: %@", error);
         }];
-        
+    }
+}
+
++ (instancetype)shared {
+    static Tereba *shared = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[self alloc] init];
+    });
+    
+    return shared;
+}
+
+- (instancetype)initWithAPIKey:(NSString *)apiKey {
+    
+    self = [super init];
+    if (self) {
+        [self setupWithAPIKey:apiKey];
     }
     
-    return sharedMyManager;
+    return self;
 }
 
 - (instancetype)init {
