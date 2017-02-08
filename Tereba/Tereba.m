@@ -20,8 +20,9 @@
 
 - (void)update:(void (^)(BOOL hasFinished, NSError *error))handler {
     
-    // timestamp logic goes here.
-    // access pincached timestamps right here.
+    if (_apiKey.length <= 0) {
+        handler(YES, nil); // custom error saying there's no valid api_key.
+    }
     
     handler(NO, nil);
     
@@ -103,7 +104,6 @@
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         [self update:handler];
     });
-    
 }
 
 - (void)setupWithAPIKey:(NSString *)apiKey {
@@ -121,7 +121,7 @@
                     _apiKey = apiKey;
                 }
                 
-                [[PINCache sharedCache] setObject:@{@"is_valid" : [NSNumber numberWithBool:isValid], @"api_key" : apiKey} forKey:@"api_key"];
+                //[[PINCache sharedCache] setObject:@{@"is_valid" : [NSNumber numberWithBool:isValid], @"api_key" : apiKey} forKey:@"api_key"];
             }
             
         } failure:^(NSURLSessionTask *operation, NSError *error) {
