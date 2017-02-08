@@ -33,12 +33,12 @@
 }
  */
 
-- (void)update:(void (^)(BOOL isUpdating))handler {
+- (void)update:(void (^)(BOOL hasFinished))handler {
     
     // timestamp logic goes here.
     // access pincached timestamps right here.
     
-    handler(YES);
+    handler(NO);
     
     if ([[PINCache sharedCache] containsObjectForKey:@"organizationsNextUpdate"]) {
         [[PINCache sharedCache] objectForKey:@"organizationsNextUpdate"
@@ -82,11 +82,11 @@
         [self syncEvents];
     }
     
-    handler(NO);
+    handler(YES);
 
 }
 
-- (void)asyncUpdate:(void (^)(BOOL isUpdating))handler { // timestamp update.
+- (void)asyncUpdate:(void (^)(BOOL hasFinished))handler { // but you can't access the db from any other thread now.
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         [self update:handler];

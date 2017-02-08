@@ -15,7 +15,7 @@
 @interface Tereba : NSObject
 
 + (instancetype)shared;
-+ (instancetype)setupWithAPIKey:(NSString *)apiKey;
+- (instancetype)initWithAPIKey:(NSString *)apiKey;
 
 @property (readonly, nonatomic) NSString *apiKey;
 
